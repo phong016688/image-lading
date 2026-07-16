@@ -5,24 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="SmartClean AI helps clean photo libraries, review duplicate photos, protect private albums, and keep core cleanup flows local-first on iOS and Android."
+      content="PhotoClean AI helps clean photo libraries, review duplicate photos, protect private albums, and keep core cleanup flows local-first on iOS and Android."
     />
-    <meta property="og:title" content="SmartClean AI - Photo Cleaner" />
+    <meta property="og:title" content="PhotoClean AI - Photo Cleaner" />
     <meta
       property="og:description"
       content="Review duplicates, group similar photos, protect private images, and free up phone storage with clear user control."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/assets/smartclean-release-hero.png" />
+    <meta property="og:image" content="/assets/photoclean-release-hero.png" />
     <meta name="theme-color" content="#f6fbfa" />
-    <link rel="icon" href="/assets/smartclean-app-icon.png" />
-    <title>SmartClean AI - Smart Photo Cleaner</title>
+    <link rel="icon" href="/assets/photoclean-app-icon.png" />
+    <title>PhotoClean AI - Smart Photo Cleaner</title>
   </head>
   <body>
     <header class="site-header" aria-label="Primary navigation">
-      <a class="brand" href="#top" aria-label="SmartClean AI home">
-        <img src="/assets/smartclean-app-icon.png" alt="" width="40" height="40" />
-        <span>SmartClean AI</span>
+      <a class="brand" href="#top" aria-label="PhotoClean AI home">
+        <img src="/assets/photoclean-app-icon.png" alt="" width="40" height="40" />
+        <span>PhotoClean AI</span>
       </a>
 
       <nav class="nav-links" aria-label="Main links">
@@ -39,11 +39,11 @@
             <p class="eyebrow" data-release-label>Release 1.0</p>
             <h1 id="hero-title">Clean your photo library. Keep it private.</h1>
             <p class="hero-copy">
-              SmartClean AI helps you review duplicates, similar photos, screenshots, and large images
+              PhotoClean AI helps you review duplicates, similar photos, screenshots, and large images
               directly on your device. Every sensitive action stays clear before anything is deleted.
             </p>
 
-            <div class="hero-actions" aria-label="Download SmartClean AI">
+            <div class="hero-actions" aria-label="Download PhotoClean AI">
               <a class="button button-primary" href="#download">
                 Download app
                 <span aria-hidden="true">↓</span>
@@ -71,7 +71,7 @@
 
       <section class="release-strip" id="release" aria-label="Release information" data-animate>
         <div class="release-strip-inner">
-          <p><strong>SmartClean AI 1.0</strong> is ready for iOS and Android.</p>
+          <p><strong>PhotoClean AI 1.0</strong> is ready for iOS and Android.</p>
           <span>Duplicate review</span>
           <span>Similar photos</span>
           <span>Private vault</span>
@@ -84,12 +84,50 @@
           <p class="eyebrow">Photo cleaner for real libraries</p>
           <h2 id="intro-title">Free up space without giving up peace of mind.</h2>
           <p>
-            SmartClean AI focuses on practical cleanup: exact duplicates, similar-photo groups,
+            PhotoClean AI focuses on practical cleanup: exact duplicates, similar-photo groups,
             screenshot review, sensitive image hiding, and Secret Space storage inside the app.
           </p>
         </div>
-        <figure class="phone-preview" aria-label="SmartClean AI app preview">
-          <img src="/assets/smartclean-app-preview.png" alt="SmartClean AI screen showing AI cleanup and Similar Photos" />
+        <figure class="phone-preview" aria-label="PhotoClean AI app preview">
+          <div class="phone-shell" aria-hidden="true">
+            <div class="phone-camera"></div>
+            <div class="phone-screen">
+              <div class="app-topbar">
+                <span>PhotoClean AI</span>
+                <span>⚙</span>
+              </div>
+
+              <div class="cleanup-widget">
+                <div class="cleanup-ring">72%</div>
+                <div>
+                  <strong>AI Cleanup</strong>
+                  <p>1.4 GB ready to review</p>
+                </div>
+              </div>
+
+              <div class="mini-section">
+                <div>
+                  <span>Similar photos</span>
+                  <strong>48</strong>
+                </div>
+                <div>
+                  <span>Duplicates</span>
+                  <strong>19</strong>
+                </div>
+              </div>
+
+              <div class="photo-grid-preview">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <button type="button" tabindex="-1">Review cleanup</button>
+            </div>
+          </div>
         </figure>
       </section>
 
@@ -171,39 +209,26 @@
           <p class="eyebrow">Download</p>
           <h2 id="download-title">Ready for iOS and Android release.</h2>
           <p>
-            Configure the final store URLs through Vercel environment variables or update
-            <code>src/config.js</code> when the production links are ready.
+            Scan the QR code from your phone, or choose the store badge for your device.
+            The page automatically uses the configured App Store and Google Play links.
           </p>
         </div>
 
-        <div class="store-actions" aria-label="Download links">
-          <a class="store-button" data-download-link="ios" href="#" rel="noreferrer">
-            <span class="store-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false">
-                <path d="M16.7 13.2c0-2.6 2.1-3.9 2.2-4-1.2-1.8-3.1-2-3.8-2.1-1.6-.2-3.1.9-3.9.9-.8 0-2.1-.9-3.4-.9-1.8 0-3.4 1-4.3 2.6-1.9 3.2-.5 8 1.3 10.6.9 1.3 2 2.7 3.4 2.6 1.3-.1 1.9-.9 3.5-.9s2.1.9 3.5.8c1.5 0 2.4-1.3 3.3-2.6 1-1.5 1.4-2.9 1.4-3-.1 0-3.2-1.2-3.2-4z" />
-                <path d="M14 5.4c.8-.9 1.3-2.2 1.1-3.4-1.1 0-2.4.7-3.2 1.6-.7.8-1.3 2.1-1.1 3.3 1.2.1 2.4-.6 3.2-1.5z" />
-              </svg>
-            </span>
-            <span>
-              <small>Download on the</small>
-              App Store
-            </span>
+        <div class="download-panel" aria-label="Download links">
+          <a class="qr-card" data-download-link="landing" href="#" rel="noreferrer">
+            <img class="download-qr" data-download-qr alt="" />
+            <span>Scan to download</span>
           </a>
 
-          <a class="store-button" data-download-link="android" href="#" rel="noreferrer">
-            <span class="store-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false">
-                <path d="M4.5 3.4c-.3.3-.5.8-.5 1.4v14.4c0 .6.2 1.1.5 1.4l.1.1L13 12.1v-.2L4.6 3.3l-.1.1z" />
-                <path d="M15.8 9.2 13 11.9v.2l2.8 2.7.1-.1 3.3-1.9c.9-.5.9-1.3 0-1.8l-3.3-1.9-.1.1z" />
-                <path d="m15.9 14.7-2.9-2.8-8.5 8.6c.5.5 1.2.5 2 .1l9.4-5.9z" />
-                <path d="M15.9 9.3 6.5 3.4c-.8-.5-1.5-.4-2 .1l8.5 8.6 2.9-2.8z" />
-              </svg>
-            </span>
-            <span>
-              <small>Get it on</small>
-              Google Play
-            </span>
-          </a>
+          <div class="store-badge-list">
+            <a class="store-badge" data-download-link="ios" href="#" rel="noreferrer" aria-label="Download PhotoClean AI on the App Store">
+              <img src="/assets/badge-app-store.svg" alt="Download on the App Store" loading="lazy" />
+            </a>
+
+            <a class="store-badge" data-download-link="android" href="#" rel="noreferrer" aria-label="Get PhotoClean AI on Google Play">
+              <img src="/assets/badge-google-play.png" alt="Get it on Google Play" loading="lazy" />
+            </a>
+          </div>
         </div>
       </section>
 
@@ -215,7 +240,7 @@
 
         <div class="faq-list">
           <details data-animate>
-            <summary>Does SmartClean AI delete photos automatically?</summary>
+            <summary>Does PhotoClean AI delete photos automatically?</summary>
             <p>No. The app groups and suggests cleanup candidates, while users review and confirm important actions.</p>
           </details>
           <details data-animate>
@@ -231,8 +256,8 @@
     </main>
 
     <footer class="site-footer">
-      <p>© <span data-current-year></span> SmartClean AI. Built for focused photo cleanup.</p>
-      <a data-support-link href="mailto:support@smartclean.ai">Support</a>
+      <p>© <span data-current-year></span> PhotoClean AI. Built for focused photo cleanup.</p>
+      <a data-support-link href="mailto:support@photoclean.ai">Support</a>
     </footer>
 
     <script type="module" src="/src/main.js"></script>

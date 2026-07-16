@@ -1,17 +1,35 @@
 import './styles.css';
+import createQrCode from 'qrcode-generator';
 import { landingConfig } from './config.js';
 
-const downloadLinkByPlatform = {
-  ios: landingConfig.downloadLinks.ios,
-  android: landingConfig.downloadLinks.android,
-};
+function main() {
+  // 1. Connect App Store, Google Play, support, and QR links.
+  setupLinks();
+
+  // 2. Render config-driven labels and date-based content.
+  renderDynamicContent();
+
+  // 3. Enable progressive reveal animations.
+  initRevealAnimations();
+}
+
+function setupLinks() {
+  applyDownloadLinks();
+  applySupportLink();
+  applyDownloadQrCode();
+}
+
+function renderDynamicContent() {
+  applyReleaseLabel();
+  applyCurrentYear();
+}
 
 function applyDownloadLinks() {
   const downloadButtons = document.querySelectorAll('[data-download-link]');
 
   downloadButtons.forEach((button) => {
     const platform = button.dataset.downloadLink;
-    const downloadUrl = downloadLinkByPlatform[platform];
+    const downloadUrl = getDownloadUrl(platform);
 
     if (!downloadUrl) {
       return;
@@ -20,6 +38,40 @@ function applyDownloadLinks() {
     button.setAttribute('href', downloadUrl);
     button.setAttribute('target', '_blank');
   });
+}
+
+function getDownloadUrl(platform) {
+  if (platform === 'landing') {
+    return getDownloadLandingUrl();
+  }
+
+  return landingConfig.downloadLinks[platform];
+}
+
+function getDownloadLandingUrl() {
+  if (landingConfig.downloadLinks.landing) {
+    return landingConfig.downloadLinks.landing;
+  }
+
+  const currentPageUrl = new URL(window.location.href);
+  currentPageUrl.hash = 'download';
+
+  return currentPageUrl.href;
+}
+
+function applyDownloadQrCode() {
+  const qrCodeImage = document.querySelector('[data-download-qr]');
+
+  if (!qrCodeImage) {
+    return;
+  }
+
+  const qrCode = createQrCode(0, 'M');
+  qrCode.addData(getDownloadLandingUrl());
+  qrCode.make();
+
+  qrCodeImage.setAttribute('src', qrCode.createDataURL(8, 2));
+  qrCodeImage.setAttribute('alt', `QR code to download ${landingConfig.appName}`);
 }
 
 function applyReleaseLabel() {
@@ -83,8 +135,4 @@ function initRevealAnimations() {
   animatedElements.forEach((element) => observer.observe(element));
 }
 
-applyDownloadLinks();
-applyReleaseLabel();
-applySupportLink();
-applyCurrentYear();
-initRevealAnimations();
+main();
