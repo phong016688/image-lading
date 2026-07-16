@@ -45,6 +45,7 @@ Store identifiers:
 - `public/assets/feature-similar-photos.png`: similar photo grouping feature image generated with built-in `imagegen`.
 - `public/assets/feature-private-vault.png`: private vault feature image generated with built-in `imagegen`.
 - `public/assets/feature-screenshot-cleanup.png`: screenshot cleanup feature image generated with built-in `imagegen`.
+- `public/assets/ipad-aso-banner.png`: iPad ASO banner image.
 - `public/assets/photoclean-app-icon.png`: app icon copied from the main repo.
 - `public/assets/badge-app-store.svg`: official App Store download badge.
 - `public/assets/badge-google-play.png`: official Google Play download badge.
