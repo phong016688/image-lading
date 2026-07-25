@@ -2,7 +2,7 @@ import './styles.css';
 import createQrCode from 'qrcode-generator';
 import { inject } from '@vercel/analytics';
 import { landingConfig } from './config.js';
-import { translations, detectUserLanguage } from './i18n.js';
+import { translations, detectUserLanguage, PHOTO_CLEAN_ARTICLES } from './i18n.js';
 
 let currentLang = detectUserLanguage();
 
@@ -31,6 +31,9 @@ function main() {
 
   // 5. Enable progressive reveal animations.
   initRevealAnimations();
+
+  // 6. Setup article modal handlers
+  setupArticleModal();
 }
 
 function setupLanguageSwitcher() {
@@ -132,7 +135,38 @@ function renderAllLanguageContent(lang) {
     `).join('');
   }
 
-  // 8. Render FAQ Accordion
+  // 8. Render Articles List
+  const articlesList = document.getElementById('articles-list');
+  if (articlesList) {
+    const readMoreText = (t.articles && t.articles.readMore) || 'Đọc Bài Viết →';
+    articlesList.innerHTML = PHOTO_CLEAN_ARTICLES.map((art) => `
+      <article class="article-card">
+        <div class="article-card-media">
+          <img src="${art.image || '/assets/photoclean-release-hero.png'}" alt="${art.title}" loading="lazy" onerror="this.src='/assets/photoclean-release-hero.png'" />
+        </div>
+        <div class="article-card-body">
+          <div>
+            <span class="article-category">${art.category}</span>
+            <div class="article-meta"><span>📅 ${art.date}</span> • <span>⏱️ ${art.readTime}</span></div>
+            <h3 class="article-title">${art.title}</h3>
+            <p class="article-excerpt">${art.excerpt}</p>
+          </div>
+          <button class="read-more-btn" data-article-id="${art.id}">
+            ${readMoreText}
+          </button>
+        </div>
+      </article>
+    `).join('');
+
+    articlesList.querySelectorAll('[data-article-id]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.articleId;
+        openArticleModal(id);
+      });
+    });
+  }
+
+  // 9. Render FAQ Accordion
   const faqList = document.getElementById('faq-list');
   if (faqList && t.faq) {
     faqList.innerHTML = t.faq.items.map((faq) => `
@@ -141,6 +175,46 @@ function renderAllLanguageContent(lang) {
         <p>${faq.a}</p>
       </details>
     `).join('');
+  }
+}
+
+function setupArticleModal() {
+  const modal = document.getElementById('article-modal');
+  const closeBtn = document.getElementById('close-article-modal');
+  if (closeBtn && modal) {
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  }
+}
+
+function openArticleModal(id) {
+  const modal = document.getElementById('article-modal');
+  const modalBody = document.getElementById('article-modal-body');
+  const article = PHOTO_CLEAN_ARTICLES.find((a) => a.id === id);
+
+  if (modal && modalBody && article) {
+    modalBody.innerHTML = `
+      ${article.image ? `<img class="article-modal-hero" src="${article.image}" alt="${article.title}" onerror="this.style.display='none'" />` : ''}
+      <span class="article-category">${article.category}</span>
+      <div class="article-meta" style="margin-top: 0.5rem;"><span>📅 ${article.date}</span> • <span>⏱️ ${article.readTime}</span></div>
+      <h2 style="margin-top: 0.5rem; font-size: 1.5rem; font-weight: 800; color: #ffffff;">${article.title}</h2>
+      <div style="margin-top: 1.25rem; font-size: 0.85rem; line-height: 1.6; color: #cbd5e1;">${article.content}</div>
+      <div class="article-store-actions">
+        <a href="${landingConfig.downloadLinks.ios}" target="_blank" rel="noreferrer">Download on App Store</a>
+        <a href="${landingConfig.downloadLinks.android}" target="_blank" rel="noreferrer">Get it on Google Play</a>
+      </div>
+    `;
+    modal.style.display = 'flex';
+    const modalContent = modal.querySelector('.article-modal-content');
+    if (modalContent) {
+      modalContent.scrollTop = 0;
+    }
   }
 }
 

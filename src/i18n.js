@@ -36,8 +36,14 @@ export const translations = {
       features: "Features",
       howItWorks: "How It Works",
       useCases: "Use Cases",
+      articles: "Articles",
       faq: "FAQ",
       download: "Get App",
+    },
+    articles: {
+      tagline: "Guides & Storage Tips",
+      title: "How to Reclaim Phone Storage Safely",
+      readMore: "Read Article →",
     },
     hero: {
       badge: "Release 1.0 • Smart Photo Cleaner",
@@ -245,8 +251,14 @@ export const translations = {
       features: "Tính năng",
       howItWorks: "Cách hoạt động",
       useCases: "Nhu cầu",
+      articles: "Bài viết",
       faq: "Hỏi đáp",
       download: "Tải App",
+    },
+    articles: {
+      tagline: "Cẩm Nang & Mẹo Hay",
+      title: "Mẹo Dọn Dẹp Dung Lượng Điện Thoại An Toàn",
+      readMore: "Đọc Bài Viết →",
     },
     hero: {
       badge: "Release 1.0 • App Dọn Dẹp Ảnh Thông Minh",
@@ -2122,3 +2134,145 @@ export const translations = {
     }
   }
 };
+
+export const PHOTO_CLEAN_ARTICLES = [
+  {
+    id: 'clear-storage-guide',
+    category: 'Storage Tips',
+    title: 'The Ultimate Guide to Clearing iPhone & Android Storage Safely with Local AI',
+    excerpt: 'Learn how duplicate photos, burst shots, and hidden video caches eat up 60%+ of your phone storage, and how local AI cleans it safely without losing memories.',
+    date: 'July 25, 2026',
+    readTime: '5 min read',
+    image: '/assets/articles/photo-storage-before-after.webp',
+    content: `
+      <h2>Why Phone Storage Fills Up So Fast</h2>
+      <p>Modern mobile cameras take high-resolution 12MP to 48MP photos. A single burst shot can generate 20 identical images in less than two seconds, consuming over 100MB of storage immediately. Over months, duplicate photos, screenshots, and cached video files accumulate silently until you see the dread "Storage Almost Full" warning.</p>
+      
+      <h3>The Hidden Danger of Automated Cloud Cleaners</h3>
+      <p>Many traditional cleaner applications rely on aggressive automatic deletion rules or cloud uploads. This creates two major risks:</p>
+      <ul>
+        <li><strong>Privacy Leaks:</strong> Uploading your personal photo library, IDs, and financial screenshots to third-party cloud servers.</li>
+        <li><strong>Accidental Deletion:</strong> Deleting non-duplicate photos because cloud algorithms misidentify sharp photos as trash.</li>
+      </ul>
+
+      <h3>How PhotoClean AI Solves Storage Cleanup</h3>
+      <p>PhotoClean AI uses 100% local on-device machine learning to analyze image sharpness, similarity vectors, and duplicate patterns directly inside your phone's Neural Engine. Your photos never leave your device.</p>
+      
+      <ol>
+        <li><strong>Smart Similarity Grouping:</strong> Group identical burst shots and highlight the clearest photo automatically.</li>
+        <li><strong>Review-First Security:</strong> You stay in full control. Preview before any photo is moved to trash.</li>
+        <li><strong>Secret Space Vault:</strong> Move personal documents and private pictures to an encrypted PIN-protected vault.</li>
+      </ol>
+    `
+  },
+  {
+    id: 'secret-space-privacy-guide',
+    category: 'Privacy & Security',
+    title: 'Secret Space: How to Encrypt & Lock Private Photos & Documents On-Device',
+    excerpt: 'Protecting sensitive personal images, bank cards, and private family photos from unauthorized eyes using local PIN encryption.',
+    date: 'July 24, 2026',
+    readTime: '4 min read',
+    image: '/assets/articles/photo-private-vault.webp',
+    content: `
+      <h2>Keeping Personal Memories Truly Private</h2>
+      <p>We often lend our phones to friends, children, or colleagues to show a vacation picture or watch a video. However, your primary camera roll contains sensitive images: passport scans, credit card photos, private medical notes, or confidential work documents.</p>
+
+      <h3>What is PhotoClean Secret Space?</h3>
+      <p>Secret Space is a local encrypted vault built directly inside PhotoClean AI. Unlike standard hidden albums that are easily accessed in system settings, Secret Space secures files behind custom PIN authentication and local encryption.</p>
+
+      <h3>Key Benefits of On-Device Vault Protection</h3>
+      <ul>
+        <li><strong>Zero Cloud Sync Risk:</strong> Encrypted files remain 100% local on your phone storage.</li>
+        <li><strong>Instant Cleanup & Hide:</strong> Move sensitive photos out of your main camera roll with a single tap.</li>
+        <li><strong>Biometric & PIN Support:</strong> Quick access with Face ID, Touch ID, or Passcode.</li>
+      </ul>
+    `
+  },
+  {
+    id: 'ai-photo-cleanup-tips',
+    category: 'AI Technology',
+    title: '3 Simple Steps to Free Up 15GB of iPhone Storage in 5 Minutes',
+    excerpt: 'Step-by-step tutorial to scan duplicate photos, clean large 4K video files, and organize your photo gallery with zero effort.',
+    date: 'July 23, 2026',
+    readTime: '4 min read',
+    image: '/assets/articles/photo-duplicate-review.webp',
+    content: `
+      <h2>Reclaim Your Storage Without Buying iCloud Subscriptions</h2>
+      <p>Before paying $2.99 or $9.99 every month for extra cloud storage, clean out the hidden gigabytes of junk photos sitting on your phone right now.</p>
+
+      <h3>Step 1: Run Deep Duplicate Scan</h3>
+      <p>Open PhotoClean AI and tap Start Scan. The local AI engine indexes your photo library in seconds, identifying identical duplicates and burst series.</p>
+
+      <h3>Step 2: Clean Large Videos & Screenshots</h3>
+      <p>Filter your gallery by file size. Old screen recordings and forgotten 4K 60fps video clips usually account for 70% of wasted space.</p>
+
+      <h3>Step 3: Confirm & Reclaim Gigabytes</h3>
+      <p>Review the suggested cleanups, tap Confirm, and enjoy gigabytes of free space instantly!</p>
+    `
+  },
+  {
+    id: 'seven-day-photo-clean-challenge',
+    category: 'Trending Challenge',
+    title: 'The 7-Day Photo Clean Challenge: A Calmer Camera Roll in 10 Minutes a Day',
+    excerpt: 'A realistic one-week reset for screenshots, duplicates, blurry shots, large videos, and the memories you actually want to keep.',
+    date: 'July 22, 2026',
+    readTime: '6 min read',
+    image: '/assets/articles/photo-clean-challenge.webp',
+    content: `
+      <h2>Clean in Small, Safe Sessions</h2>
+      <p>A huge camera roll feels impossible when you try to review everything at once. A ten-minute daily routine creates visible progress without rushed deletion.</p>
+      <ol>
+        <li><strong>Day 1:</strong> Review exact duplicates.</li>
+        <li><strong>Day 2:</strong> Group burst photos and keep the sharpest expression.</li>
+        <li><strong>Day 3:</strong> Clear expired receipts, QR codes, and delivery screenshots.</li>
+        <li><strong>Day 4:</strong> Review large screen recordings and 4K videos.</li>
+        <li><strong>Day 5:</strong> Move sensitive documents into Secret Space.</li>
+        <li><strong>Day 6:</strong> Organize favorite trips and family moments.</li>
+        <li><strong>Day 7:</strong> Review the trash before final deletion.</li>
+      </ol>
+      <h3>Keep the Habit Frictionless</h3>
+      <p>PhotoClean AI groups likely cleanup candidates locally, while you make every final decision.</p>
+    `
+  },
+  {
+    id: 'screenshot-reset-guide',
+    category: 'Digital Wellness',
+    title: 'Screenshot Reset: What to Keep, Archive, or Delete Without Regret',
+    excerpt: 'Turn years of recipes, maps, memes, receipts, and temporary notes into a camera roll you can actually search.',
+    date: 'July 21, 2026',
+    readTime: '5 min read',
+    image: '/assets/articles/photo-screenshot-reset.webp',
+    content: `
+      <h2>Screenshots Are Temporary Notes Disguised as Photos</h2>
+      <p>Most screenshots lose their value quickly: an event ticket expires, a product sells out, or a map is no longer needed. The safest cleanup rule is to review by purpose rather than by date alone.</p>
+      <h3>A Simple Decision Filter</h3>
+      <ul>
+        <li><strong>Keep:</strong> meaningful conversations, creative references, and active documents.</li>
+        <li><strong>Archive elsewhere:</strong> receipts, warranties, recipes, and project notes.</li>
+        <li><strong>Delete:</strong> expired codes, temporary directions, duplicate memes, and accidental captures.</li>
+      </ul>
+      <p>Use PhotoClean AI to bring likely screenshots together, then review them in focused batches.</p>
+    `
+  },
+  {
+    id: 'vacation-photo-cleanup',
+    category: 'Travel Photos',
+    title: 'Back From Vacation? Find the Best 30 Photos Without Reviewing 2,000',
+    excerpt: 'A practical workflow for burst shots, repeated landmarks, blurry night photos, and oversized travel videos.',
+    date: 'July 20, 2026',
+    readTime: '6 min read',
+    image: '/assets/articles/photo-travel-cleanup.webp',
+    content: `
+      <h2>Tell the Story, Not Every Tap of the Shutter</h2>
+      <p>A memorable travel album needs variety: one establishing view, a few people moments, meaningful details, and a strong ending. Hundreds of nearly identical frames make those highlights harder to find.</p>
+      <ol>
+        <li>Group similar scenes and compare sharpness and expressions.</li>
+        <li>Keep one or two strong frames per landmark.</li>
+        <li>Review blurry night shots at full size before deleting.</li>
+        <li>Trim or remove accidental long videos.</li>
+        <li>Favorite a final set of 20–30 images for sharing.</li>
+      </ol>
+      <p>PhotoClean AI performs similarity analysis on-device so the review stays private and under your control.</p>
+    `
+  }
+];
