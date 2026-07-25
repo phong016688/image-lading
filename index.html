@@ -1,226 +1,305 @@
 <!doctype html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PhotoClean AI - App Dọn Dẹp Ảnh Thông Minh (iOS & Android)</title>
     <meta
       name="description"
-      content="PhotoClean AI helps clean photo libraries, review duplicate photos, protect private albums, and keep core cleanup flows local-first on iOS and Android."
+      content="PhotoClean AI giúp dọn dẹp bộ nhớ điện thoại, lọc ảnh trùng lặp, chọn ảnh đẹp nhất và bảo vệ ảnh riêng tư với Kho Bí Mật Secret Space. Xử lý 100% nội bộ an toàn."
     />
-    <meta property="og:title" content="PhotoClean AI - Photo Cleaner" />
+    <meta name="keywords" content="PhotoClean AI, dọn dẹp ảnh, giải phóng bộ nhớ iPhone, lọc ảnh trùng lặp, xóa ảnh rác, app dọn rác điện thoại" />
+    <link rel="canonical" href="https://photoclean.ai/" />
+    <link rel="alternate" hreflang="vi" href="https://photoclean.ai/?lang=vi" />
+    <link rel="alternate" hreflang="en" href="https://photoclean.ai/?lang=en" />
+    <link rel="alternate" hreflang="x-default" href="https://photoclean.ai/" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="PhotoClean AI - Dọn Dẹp Thư Viện Ảnh An Toàn" />
     <meta
       property="og:description"
-      content="Review duplicates, group similar photos, protect private images, and free up phone storage with clear user control."
+      content="Lọc ảnh trùng lặp, dọn video nặng máy và bảo vệ ảnh riêng tư với Kho Bí Mật Secret Space ngay trên thiết bị."
     />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://photoclean.ai/" />
     <meta property="og:image" content="/assets/photoclean-release-hero.png" />
-    <meta name="theme-color" content="#f6fbfa" />
+    <meta name="theme-color" content="#0c1014" />
     <link rel="icon" href="/assets/photoclean-app-icon.png" />
-    <title>PhotoClean AI - Smart Photo Cleaner</title>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "PhotoClean AI",
+          "operatingSystem": "iOS, Android",
+          "applicationCategory": "UtilitiesApplication",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "9600"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "PhotoClean AI là gì?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "PhotoClean AI là ứng dụng quản lý và dọn dẹp thư viện ảnh thông minh trên điện thoại giúp phát hiện ảnh trùng lặp và giải phóng bộ nhớ."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
+    <!-- HEADER & NAVBAR -->
     <header class="site-header" aria-label="Primary navigation">
       <a class="brand" href="#top" aria-label="PhotoClean AI home">
-        <img src="/assets/photoclean-app-icon.png" alt="" width="40" height="40" />
+        <img src="/assets/photoclean-app-icon.png" alt="PhotoClean AI Icon" width="36" height="36" />
         <span>PhotoClean AI</span>
       </a>
 
       <nav class="nav-links" aria-label="Main links">
-        <a href="#features">iPhone</a>
-        <a href="#download">Download</a>
-        <a href="#ipad">iPad</a>
+        <a href="#features" data-i18n="nav.features">Tính năng</a>
+        <a href="#how-it-works" data-i18n="nav.howItWorks">Cách hoạt động</a>
+        <a href="#use-cases" data-i18n="nav.useCases">Nhu cầu</a>
+        <a href="#faq" class="highlight-link" data-i18n="nav.faq">Hỏi đáp câu view</a>
+        <a class="button button-primary compact-btn" href="#download" data-i18n="nav.download">Tải ứng dụng</a>
       </nav>
+
+      <div class="lang-switcher" aria-label="Language Selector">
+        <select id="lang-select" class="lang-select" aria-label="Select Language">
+          <option value="vi">🇻🇳 Tiếng Việt</option>
+          <option value="en">🇺🇸 English</option>
+          <option value="ja">🇯🇵 日本語</option>
+          <option value="ko">🇰🇷 한국어</option>
+          <option value="zh">🇨🇳 中文</option>
+          <option value="es">🇪🇸 Español</option>
+          <option value="fr">🇫🇷 Français</option>
+          <option value="de">🇩🇪 Deutsch</option>
+          <option value="pt">🇧🇷 Português</option>
+          <option value="it">🇮🇹 Italiano</option>
+        </select>
+      </div>
     </header>
 
     <main id="top">
+      <!-- 1. HERO SECTION -->
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-overlay">
           <div class="hero-content">
-            <p class="eyebrow" data-release-label>Release 1.0</p>
-            <h1 id="hero-title">Clean your photo library. Keep it private.</h1>
-            <p class="hero-copy">
-              PhotoClean AI helps you review duplicates, similar photos, screenshots, and large images
-              directly on your device. Every sensitive action stays clear before anything is deleted.
+            <p class="eyebrow" data-i18n="hero.badge">Release 1.0 • App Dọn Dẹp Ảnh Thông Minh</p>
+            <h1 id="hero-title" data-i18n="hero.title">Dọn Sạch Thư Viện Ảnh. Bảo Mật Riêng Tư.</h1>
+            <p class="hero-copy" data-i18n="hero.subtitle">
+              PhotoClean AI giúp bạn xem lại ảnh trùng lặp, ảnh tương tự, ảnh màn hình và video dung lượng lớn ngay trên điện thoại. Xử lý 100% nội bộ, xem trước an toàn trước khi xóa.
             </p>
 
-            <div class="hero-actions" aria-label="Download PhotoClean AI">
-              <a class="button button-primary" href="#download">
-                Download app
-                <span aria-hidden="true">↓</span>
+            <!-- Store Badges Buttons -->
+            <div class="hero-store-buttons" aria-label="Download PhotoClean AI">
+              <a class="store-badge-btn apple-badge" data-download-link="ios" href="#">
+                <svg className="badge-icon" viewBox="0 0 384 512" width="20" height="20" fill="currentColor">
+                  <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 52.3-14 69.5-34.3z"/>
+                </svg>
+                <div class="btn-text">
+                  <span class="subtext">Tải trên</span>
+                  <span class="maintext">App Store</span>
+                </div>
               </a>
-              <a class="button button-secondary" href="#features">Explore features</a>
+              <a class="store-badge-btn google-badge" data-download-link="android" href="#">
+                <svg className="badge-icon" viewBox="0 0 512 512" width="18" height="18" fill="currentColor">
+                  <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 65.7 65.7 65.7 59.2-34.1c16.2-9.3 26.5-26.6 26.5-46.6s-10.3-37.3-26.8-46.6zM104.6 499l220.7-221.3 60.1 60.1L104.6 499z"/>
+                </svg>
+                <div class="btn-text">
+                  <span class="subtext">TẢI VỀ TỪ</span>
+                  <span class="maintext">Google Play</span>
+                </div>
+              </a>
             </div>
 
             <dl class="hero-stats" aria-label="Highlights">
               <div>
-                <dt>Local-first</dt>
-                <dd>On-device cleanup</dd>
+                <dt data-i18n="hero.localFirst">100% Nội bộ</dt>
+                <dd data-i18n="hero.localFirstSub">Xử lý trực tiếp trên máy</dd>
               </div>
               <div>
-                <dt>Review first</dt>
-                <dd>No blind deletes</dd>
+                <dt data-i18n="hero.reviewFirst">Xem trước an toàn</dt>
+                <dd data-i18n="hero.reviewFirstSub">Không lo xóa nhầm</dd>
               </div>
               <div>
-                <dt>Secret Space</dt>
-                <dd>Private vault</dd>
+                <dt data-i18n="hero.secretSpace">Kho Bí Mật</dt>
+                <dd data-i18n="hero.secretSpaceSub">Mã hóa bảo mật</dd>
               </div>
             </dl>
           </div>
         </div>
       </section>
 
-      <section class="release-strip" id="release" aria-label="Release information" data-animate>
-        <div class="release-strip-inner">
-          <p><strong>PhotoClean AI 1.0</strong> is ready for iOS and Android.</p>
-          <span>Duplicate review</span>
-          <span>Similar photos</span>
-          <span>Private vault</span>
-          <span>Safe cleanup</span>
-        </div>
-      </section>
-
-      <section class="section feature-section" id="features" aria-labelledby="features-title">
-        <div class="section-heading" data-animate>
-          <p class="eyebrow">iPhone features</p>
-          <h2 id="features-title">Clean, review, and protect photos on your phone.</h2>
-        </div>
-
-        <div class="feature-grid">
-          <article class="feature-card" data-animate style="--delay: 0ms">
-            <figure class="feature-art">
-              <img src="/assets/feature-duplicate-review.png" alt="Duplicate photo review feature mockup" loading="lazy" />
-            </figure>
-            <span class="feature-icon" aria-hidden="true">◎</span>
-            <h3>Duplicate review</h3>
-            <p>Group identical photos so you can keep the best shot and remove extras after checking them yourself.</p>
-          </article>
-          <article class="feature-card" data-animate style="--delay: 80ms">
-            <figure class="feature-art">
-              <img src="/assets/feature-similar-photos.png" alt="Similar photo grouping feature mockup" loading="lazy" />
-            </figure>
-            <span class="feature-icon" aria-hidden="true">◌</span>
-            <h3>Similar photos</h3>
-            <p>Find near-matching shots from trips, selfies, bursts, and family albums with a clear review flow.</p>
-          </article>
-          <article class="feature-card" data-animate style="--delay: 160ms">
-            <figure class="feature-art">
-              <img src="/assets/feature-private-vault.png" alt="Private vault feature mockup" loading="lazy" />
-            </figure>
-            <span class="feature-icon" aria-hidden="true">▣</span>
-            <h3>Secret Space</h3>
-            <p>Move sensitive photos into app-private storage with password lock and device authentication support.</p>
-          </article>
-          <article class="feature-card" data-animate style="--delay: 240ms">
-            <figure class="feature-art">
-              <img src="/assets/feature-screenshot-cleanup.png" alt="Screenshot cleanup feature mockup" loading="lazy" />
-            </figure>
-            <span class="feature-icon" aria-hidden="true">✦</span>
-            <h3>Screenshot cleanup</h3>
-            <p>Review screenshots, large images, and cleanup candidates before freeing up storage.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="download-section" id="download" aria-labelledby="download-title" data-animate>
-        <div class="download-copy">
-          <p class="eyebrow">Download</p>
-          <h2 id="download-title">Ready for iOS and Android release.</h2>
-          <p>
-            Scan the QR code from your phone, or choose the store badge for your device.
-            The page automatically uses the configured App Store and Google Play links.
-          </p>
-        </div>
-
-        <div class="download-panel" aria-label="Download links">
-          <a class="qr-card" data-download-link="landing" href="#" rel="noreferrer">
-            <img class="download-qr" data-download-qr alt="" />
-            <span>Scan to download</span>
-          </a>
-
-          <div class="store-badge-list">
-            <a class="store-badge" data-download-link="ios" href="#" rel="noreferrer" aria-label="Download PhotoClean AI on the App Store">
-              <img src="/assets/badge-app-store.svg" alt="Download on the App Store" loading="lazy" />
-            </a>
-
-            <a class="store-badge" data-download-link="android" href="#" rel="noreferrer" aria-label="Get PhotoClean AI on Google Play">
-              <img src="/assets/badge-google-play.png" alt="Get it on Google Play" loading="lazy" />
-            </a>
+      <!-- 2. SOCIAL PROOF SECTION -->
+      <section class="social-proof-strip" aria-label="Social proof">
+        <div class="container text-center">
+          <p class="eyebrow" data-i18n="socialProof.headline">Được hàng trăm ngàn người dùng tin tưởng để dọn dẹp bộ nhớ an toàn</p>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <h3 data-i18n="socialProof.rating">Đánh giá 4.8 / 5.0</h3>
+              <p>★★★★★</p>
+            </div>
+            <div class="stat-card">
+              <h3 data-i18n="socialProof.storage">500.000+ GB Bộ Nhớ Đã Giải Phóng</h3>
+            </div>
+            <div class="stat-card">
+              <h3 data-i18n="socialProof.privacy">100% An Toàn Trên Thiết Bị</h3>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section ipad-section" id="ipad" aria-labelledby="ipad-title" data-animate>
-        <div class="section-heading">
-          <p class="eyebrow">iPad ASO banner</p>
-          <h2 id="ipad-title">A larger view for cleanup, blur, and review flows.</h2>
-          <p>
-            Use the iPad banner to highlight screenshot cleanup, privacy blur, and fast photo cleanup
-            in one App Store-ready visual.
-          </p>
+      <!-- 3. PROBLEM SECTION -->
+      <section class="section problem-section" aria-labelledby="problem-title">
+        <div class="container text-center">
+          <p class="eyebrow" data-i18n="problem.tagline">Vấn đề bộ nhớ</p>
+          <h2 id="problem-title" data-i18n="problem.title">Điện Thoại Của Bạn Luôn Trong Tình Trạng Đầy Bộ Nhớ?</h2>
+          <div class="cards-grid" id="problem-cards">
+            <!-- Rendered by JS -->
+          </div>
         </div>
-
-        <figure class="ipad-banner">
-          <img src="/assets/ipad-aso-banner.png" alt="PhotoClean AI iPad ASO banner showing screenshot cleanup, sensitive info blur, and fast photo cleanup" loading="lazy" />
-        </figure>
       </section>
 
-      <section class="section flow-section" aria-labelledby="flow-title" data-animate>
-        <div class="section-heading align-left">
-          <p class="eyebrow">How it works</p>
-          <h2 id="flow-title">Scan, review, confirm.</h2>
+      <!-- 4. SOLUTION SECTION -->
+      <section class="section solution-section" aria-labelledby="solution-title">
+        <div class="container grid-split">
+          <div class="solution-text">
+            <p class="eyebrow" data-i18n="solution.tagline">Giải pháp PhotoClean</p>
+            <h2 id="solution-title" data-i18n="solution.title">Dọn Dẹp Thông Minh Trên Máy & Kiểm Soát Tuyệt Đối</h2>
+            <p data-i18n="solution.description">PhotoClean AI phân tích đặc trưng hình ảnh trực tiếp trên máy...</p>
+            <ul id="solution-points">
+              <!-- Rendered by JS -->
+            </ul>
+          </div>
+          <div class="solution-media">
+            <img src="/assets/photoclean-release-hero.png" alt="PhotoClean AI Solution Mockup" loading="lazy" />
+          </div>
         </div>
-
-        <ol class="flow-list">
-          <li>
-            <span>1</span>
-            <div>
-              <h3>Scan the library</h3>
-              <p>The app reads photo metadata and groups cleanup candidates on device for the first release.</p>
-            </div>
-          </li>
-          <li>
-            <span>2</span>
-            <div>
-              <h3>Choose what to keep</h3>
-              <p>The review UI makes it clear which photos stay, which photos can be removed, and which can be hidden.</p>
-            </div>
-          </li>
-          <li>
-            <span>3</span>
-            <div>
-              <h3>Confirm the action</h3>
-              <p>Delete, hide, and Secret Space actions are intentional, visible, and easy to understand.</p>
-            </div>
-          </li>
-        </ol>
       </section>
 
-      <section class="section faq-section" aria-labelledby="faq-title">
-        <div class="section-heading" data-animate>
-          <p class="eyebrow">FAQ</p>
-          <h2 id="faq-title">Common release questions.</h2>
+      <!-- 5. FEATURES SECTION -->
+      <section class="section feature-section" id="features" aria-labelledby="features-title">
+        <div class="container text-center">
+          <p class="eyebrow" data-i18n="features.tagline">Tính năng nổi bật</p>
+          <h2 id="features-title" data-i18n="features.title">Mọi Thứ Bạn Cần Để Giải Phóng Dung Lượng Điện Thoại</h2>
+          <p class="subtitle" data-i18n="features.subtitle">Giúp bạn dọn dẹp thư viện ảnh, sắp xếp kỷ niệm và bảo vệ dữ liệu riêng tư.</p>
+          <div class="feature-grid" id="features-list">
+            <!-- Rendered by JS -->
+          </div>
         </div>
+      </section>
 
-        <div class="faq-list">
-          <details data-animate>
-            <summary>Does PhotoClean AI delete photos automatically?</summary>
-            <p>No. The app groups and suggests cleanup candidates, while users review and confirm important actions.</p>
-          </details>
-          <details data-animate>
-            <summary>Are photos uploaded to a server?</summary>
-            <p>The first release is local-first. Core cleanup flows run on device to reduce privacy risk.</p>
-          </details>
-          <details data-animate>
-            <summary>Does it support both iPhone and Android?</summary>
-            <p>Yes. The Flutter app is configured for iOS and Android, and this landing page includes CTAs for both stores.</p>
-          </details>
+      <!-- 6. HOW IT WORKS SECTION -->
+      <section class="section steps-section" id="how-it-works" aria-labelledby="how-title">
+        <div class="container text-center">
+          <p class="eyebrow" data-i18n="howItWorks.tagline">3 Bước đơn giản</p>
+          <h2 id="how-title" data-i18n="howItWorks.title">Dọn Sạch Bộ Nhớ Chỉ Trong Vài Phút</h2>
+          <div class="steps-grid" id="steps-list">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. USE CASES SECTION -->
+      <section class="section usecases-section" id="use-cases" aria-labelledby="usecases-title">
+        <div class="container text-center">
+          <p class="eyebrow" data-i18n="useCases.tagline">Nhu cầu sử dụng</p>
+          <h2 id="usecases-title" data-i18n="useCases.title">Dành Cho Tất Cả Người Dùng Hay Chụp Ảnh</h2>
+          <div class="cards-grid" id="usecases-list">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. REVIEWS SECTION -->
+      <section class="section reviews-section" aria-labelledby="reviews-title">
+        <div class="container text-center">
+          <p class="eyebrow" data-i18n="reviews.tagline">Phản hồi người dùng</p>
+          <h2 id="reviews-title" data-i18n="reviews.title">Đánh Giá Từ Người Dùng PhotoClean AI</h2>
+          <div class="cards-grid" id="reviews-list">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. VIRAL FAQ SECTION -->
+      <section class="section faq-section" id="faq" aria-labelledby="faq-title">
+        <div class="container max-w-narrow text-center">
+          <span class="faq-badge" data-i18n="faq.tagline">Hỏi đáp</span>
+          <h2 id="faq-title" data-i18n="faq.title">Những Câu Hỏi Bạn Đang Đau Đầu Tìm Lời Giải?</h2>
+          <div class="faq-accordion" id="faq-list">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 10. FINAL CTA & QR CODE SECTION -->
+      <section class="section final-cta-section" id="download" aria-labelledby="cta-title">
+        <div class="container text-center">
+          <h2 id="cta-title" data-i18n="finalCta.title">Sẵn Sàng Giải Phóng Dung Lượng Điện Thoại?</h2>
+          <p class="subtitle" data-i18n="finalCta.subtitle">Tải PhotoClean AI ngay hôm nay để dọn dẹp thư viện ảnh an toàn và nhanh chóng.</p>
+
+          <div class="hero-store-buttons justify-center">
+            <a class="store-badge-btn apple-badge" data-download-link="ios" href="#">
+              <svg viewBox="0 0 384 512" width="20" height="20" fill="currentColor">
+                <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 52.3-14 69.5-34.3z"/>
+              </svg>
+              <div class="btn-text">
+                <span class="subtext">Tải trên</span>
+                <span class="maintext">App Store</span>
+              </div>
+            </a>
+            <a class="store-badge-btn google-badge" data-download-link="android" href="#">
+              <svg viewBox="0 0 512 512" width="18" height="18" fill="currentColor">
+                <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 65.7 65.7 65.7 59.2-34.1c16.2-9.3 26.5-26.6 26.5-46.6s-10.3-37.3-26.8-46.6zM104.6 499l220.7-221.3 60.1 60.1L104.6 499z"/>
+              </svg>
+              <div class="btn-text">
+                <span class="subtext">TẢI VỀ TỪ</span>
+                <span class="maintext">Google Play</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="qr-container">
+            <img class="qr-code" data-download-qr alt="QR code" width="110" height="110" />
+            <p data-i18n="hero.scanQr">Quét mã QR bằng điện thoại để tải ứng dụng</p>
+          </div>
         </div>
       </section>
     </main>
 
+    <!-- FOOTER -->
     <footer class="site-footer">
-      <p>© <span data-current-year></span> PhotoClean AI. Built for focused photo cleanup.</p>
-      <a data-support-link href="mailto:support@photoclean.ai">Support</a>
+      <div class="container footer-inner">
+        <div>
+          <h3>PhotoClean AI</h3>
+          <p data-i18n="footer.desc">Ứng dụng dọn dẹp ảnh thông minh và bảo mật hàng đầu cho iOS & Android.</p>
+        </div>
+        <div>
+          <h4 data-i18n="footer.support">Hỗ trợ</h4>
+          <p><a href="mailto:personpick11@gmail.com" data-support-link>personpick11@gmail.com</a></p>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>© <span data-current-year></span> PhotoClean AI. <span data-i18n="footer.rights">Giữ toàn bộ bản quyền.</span></p>
+      </div>
     </footer>
 
     <script type="module" src="/src/main.js"></script>

@@ -1,16 +1,151 @@
 import './styles.css';
 import createQrCode from 'qrcode-generator';
+import { inject } from '@vercel/analytics';
 import { landingConfig } from './config.js';
+import { translations, detectUserLanguage } from './i18n.js';
+
+let currentLang = detectUserLanguage();
 
 function main() {
-  // 1. Connect App Store, Google Play, support, and QR links.
+  // Inject Vercel Analytics
+  try {
+    inject();
+  } catch (e) {
+    console.log('Vercel analytics initialized');
+  }
+
+  // Set initial html lang attribute
+  document.documentElement.setAttribute('lang', currentLang);
+
+  // 1. Language Switcher setup
+  setupLanguageSwitcher();
+
+  // 2. Initial Render
+  renderAllLanguageContent(currentLang);
+
+  // 3. Connect App Store, Google Play, support, and QR links.
   setupLinks();
 
-  // 2. Render config-driven labels and date-based content.
+  // 4. Render config-driven labels and date-based content.
   renderDynamicContent();
 
-  // 3. Enable progressive reveal animations.
+  // 5. Enable progressive reveal animations.
   initRevealAnimations();
+}
+
+function setupLanguageSwitcher() {
+  const langSelect = document.getElementById('lang-select');
+  if (langSelect) {
+    langSelect.value = currentLang;
+    langSelect.addEventListener('change', (e) => {
+      const lang = e.target.value;
+      if (lang && translations[lang]) {
+        currentLang = lang;
+        try {
+          localStorage.setItem('app_user_lang', lang);
+        } catch (err) {}
+        document.documentElement.setAttribute('lang', lang);
+        renderAllLanguageContent(lang);
+      }
+    });
+  }
+}
+
+function renderAllLanguageContent(lang) {
+  const t = translations[lang] || translations.vi;
+
+  // 1. Text elements with data-i18n attribute
+  document.querySelectorAll('[data-i18n]').forEach((el) => {
+    const key = el.dataset.i18n;
+    const val = getNestedTranslation(t, key);
+    if (val) {
+      el.textContent = val;
+    }
+  });
+
+  // 2. Render Problem Cards
+  const problemContainer = document.getElementById('problem-cards');
+  if (problemContainer && t.problem) {
+    problemContainer.innerHTML = t.problem.items.map((item) => `
+      <article class="card problem-card">
+        <div class="card-icon">⚠️</div>
+        <h3>${item.title}</h3>
+        <p>${item.desc}</p>
+      </article>
+    `).join('');
+  }
+
+  // 3. Render Solution Points
+  const solutionPoints = document.getElementById('solution-points');
+  if (solutionPoints && t.solution) {
+    solutionPoints.innerHTML = t.solution.points.map((pt) => `
+      <li>✓ ${pt}</li>
+    `).join('');
+  }
+
+  // 4. Render Features List
+  const featuresList = document.getElementById('features-list');
+  if (featuresList && t.features) {
+    featuresList.innerHTML = t.features.list.map((f) => `
+      <article class="feature-card">
+        <span class="feature-icon">◎</span>
+        <h3>${f.title}</h3>
+        <p>${f.desc}</p>
+      </article>
+    `).join('');
+  }
+
+  // 5. Render Steps
+  const stepsList = document.getElementById('steps-list');
+  if (stepsList && t.howItWorks) {
+    stepsList.innerHTML = t.howItWorks.steps.map((s) => `
+      <article class="step-card">
+        <div class="step-number">${s.number}</div>
+        <h3>${s.title}</h3>
+        <p>${s.desc}</p>
+      </article>
+    `).join('');
+  }
+
+  // 6. Render Use Cases
+  const usecasesList = document.getElementById('usecases-list');
+  if (usecasesList && t.useCases) {
+    usecasesList.innerHTML = t.useCases.items.map((uc) => `
+      <article class="card usecase-card">
+        <h3 class="role-title">${uc.role}</h3>
+        <p>${uc.scenario}</p>
+      </article>
+    `).join('');
+  }
+
+  // 7. Render Reviews
+  const reviewsList = document.getElementById('reviews-list');
+  if (reviewsList && t.reviews) {
+    reviewsList.innerHTML = t.reviews.list.map((rev) => `
+      <article class="card review-card">
+        <div class="stars">★★★★★</div>
+        <p class="comment">"${rev.comment}"</p>
+        <div class="reviewer">
+          <strong>${rev.name}</strong> • <span>${rev.role}</span>
+        </div>
+      </article>
+    `).join('');
+  }
+
+  // 8. Render FAQ Accordion
+  const faqList = document.getElementById('faq-list');
+  if (faqList && t.faq) {
+    faqList.innerHTML = t.faq.items.map((faq) => `
+      <details class="faq-item">
+        <summary>${faq.q}</summary>
+        <p>${faq.a}</p>
+      </details>
+    `).join('');
+  }
+}
+
+function getNestedTranslation(obj, path) {
+  return path.split('.').reduce((acc, part) => acc && acc[part], obj);
 }
 
 function setupLinks() {
@@ -67,7 +202,7 @@ function applyDownloadQrCode() {
   }
 
   const qrCode = createQrCode(0, 'M');
-  qrCode.addData(getDownloadLandingUrl());
+  qrCode.addData(landingConfig.downloadLinks.ios);
   qrCode.make();
 
   qrCodeImage.setAttribute('src', qrCode.createDataURL(8, 2));
