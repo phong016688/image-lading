@@ -76,7 +76,8 @@
         <a href="#features" data-i18n="nav.features">Tính năng</a>
         <a href="#how-it-works" data-i18n="nav.howItWorks">Cách hoạt động</a>
         <a href="#use-cases" data-i18n="nav.useCases">Nhu cầu</a>
-        <a href="#faq" class="highlight-link" data-i18n="nav.faq">Hỏi đáp câu view</a>
+        <a href="#articles" data-i18n="nav.articles">Bài viết</a>
+        <a href="#faq" class="highlight-link" data-i18n="nav.faq">Hỏi đáp</a>
         <a class="button button-primary compact-btn" href="#download" data-i18n="nav.download">Tải ứng dụng</a>
       </nav>
 
@@ -238,6 +239,25 @@
           </div>
         </div>
       </section>
+
+      <!-- 8.5 ARTICLES SECTION -->
+      <section class="section articles-section" id="articles" aria-labelledby="articles-title">
+        <div class="container text-center">
+          <p class="eyebrow" data-i18n="articles.tagline">Cẩm Nang & Bài Viết</p>
+          <h2 id="articles-title" data-i18n="articles.title">Hướng Dẫn & Mẹo Dọn Dẹp Dung Lượng Điện Thoại</h2>
+          <div class="articles-grid" id="articles-list">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ARTICLE DETAIL MODAL -->
+      <div id="article-modal" class="article-modal-overlay" style="display: none;">
+        <div class="article-modal-content">
+          <button id="close-article-modal" class="close-modal-btn">&times;</button>
+          <div id="article-modal-body" class="article-modal-body"></div>
+        </div>
+      </div>
 
       <!-- 9. VIRAL FAQ SECTION -->
       <section class="section faq-section" id="faq" aria-labelledby="faq-title">
